@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="setup-process">Setup process</h1>
+<h2 id="backend-nodejs-server">Backend (Nodejs) server</h2>
+<p>Install latest LTS version of <a href="https://nodejs.org/">NodeJS</a> .<br>
+<a href="https://github.com/creationix/nvm">NVM</a> is an easy way to setup nodejs on linux machines.</p>
+<ul>
+<li>To install NVM, run command<br>
+<code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</code></li>
+<li>Above command will add nvm to the <code>.bashrc</code> file. Reload <code>.bashrc</code><br>
+<code>soruce ~/.bashrc</code></li>
+<li>Now NVM command should be available. To install latest version of NodeJS, run command<br>
+<code>nvm install --lts</code></li>
+<li>Verify node and npm versions.<br>
+<code>node -v</code>   This should output node version, for ex. <code>v10.14.0</code><br>
+<code>npm -v</code> This should output npm version, for ex <code>6.4.1</code></li>
+<li>Nodejs installation is complete.</li>
+</ul>
+<h2 id="setup-code-backend">Setup code (backend)</h2>
+<ul>
+<li>
+<p>Back end code is hosted at our bitbucket git server. <a href="https://bitbucket.org/SatishApeiron/startup-assist">starup-assist</a> . I have send access invitation to your email but in case you dont want to go through another account setup process, here is the direct link for code download.<br>
+<a href="https://www.dropbox.com/s/woeg25t46mccao7/startup-assist.zip?dl=0">https://www.dropbox.com/s/woeg25t46mccao7/startup-assist.zip?dl=0</a><br>
+Download source code from above link and unzip it. It should have the following structure.<br>
+<img src="https://www.dropbox.com/s/u5dqj06d7paetpm/st-assist-code.png?dl=1" alt="enter image description here"></p>
+</li>
+<li>
+<p>Update the database config settings in the <code>config/config.json</code> file in case database credentials have changed.</p>
+</li>
+<li>
+<p>We are interested in staging section for now. Refer the screenshot below.<br>
+<img src="https://www.dropbox.com/s/1xql3y2240no8h4/db-config.png?dl=1" alt="enter image description here"></p>
+</li>
+<li>
+<p>Update <code>usename</code>, <code>password</code>, <code>database</code> and <code>host</code> according to the RDS instance details.</p>
+</li>
+<li>
+<p>CD to the source code directory and run command<br>
+<code>npm install</code><br>
+Above command will install the required dependencies for code.<br>
+New directory structure should look like<br>
+-<img src="https://www.dropbox.com/s/chrsi5pm9pcjxby/st-assist-code-after-install.png?dl=1" alt="enter image description here"><br>
+Notice the addition of a folder called <code>node_modules</code>, above <code>package.json</code> file.</p>
+</li>
+<li>
+<p>To run the backend server, execute command<br>
+<code>npm run stag</code>  or if you want it to persist after ssh session if closed, run it using <code>nohup</code>.<br>
+<code>nohup npm run stag &amp;</code></p>
+<p>Above command should start our backend server on <code>port 3000</code></p>
+</li>
+</ul>
+<blockquote>
+<p>Make sure port 3000 is open in the security config if you want to test the backend server from your browser.</p>
+</blockquote>
+</div>
+</body>
+
+</html>
